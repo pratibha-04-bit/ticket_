@@ -336,7 +336,23 @@
     border: 1px solid #E2E5ED;
     border-radius: .25rem;
   }
-  
+  .grid-item {
+    margin: 20px;
+    background-color: #fff;
+    
+}
+
+
+#clock {
+    
+    
+    color: black;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
       
   </style>
 </head>
@@ -833,14 +849,15 @@
                                 </div>
                               </div>
                               <div class="my-action-buttons " style="margin: 10px;">
-                                <select class="my-select custom-select" id="inputGroupSelect01" style="padding: 10px;">
+                                
+                                <select class="my-select custom-select" id="inputGroupSelect01" style="padding: 5px;">
                                   <option selected>Status</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
                                   <option value="3">Three</option>
                                 </select>
                                 
-                                <select class="my-select custom-select" id="inputGroupSelect01" style="padding: 10px;">
+                                <select class="my-select custom-select" id="inputGroupSelect01" style="padding: 5px;">
                                   <option selected>Assignee</option>
                                   <option value="1">One</option>
                                   <option value="2">Two</option>
@@ -869,8 +886,20 @@
                                 <div class="my-card card">
                                   <div class="my-card__header card-header">
                                     <div class="my-card__header-title">
-                                      <div class="my-text-overline">Payment Balance</div>
-                                      <h3 class="my-text-headline">$52,100.00</h3>
+                                      <div class="my-text-overline">Time to Resolve</div>
+                                      <!-- <h3 class="my-text-headline">$52,100.00</h3> -->
+                                      <div class="grid">
+
+                                        <div class="grid-item">
+                                            
+                                            <div id="clock"></div>
+                                        </div>
+                            
+                                        
+                            
+                                       
+                            
+                                    </div>
                                     </div>
                                     <a class="my-card__header-link" href="#">Details →</a>
                                   </div>
@@ -1107,7 +1136,39 @@
 <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>
   
   <!-- End custom js for this page-->
+<script>
+  setInterval(showTime, 1000);
+function showTime() {
 
+    let clock_time = new Date();
+    let clock_hour = clock_time.getHours();
+    let clock_min = clock_time.getMinutes();
+    let clock_sec = clock_time.getSeconds();
+    
+ 
+    clock_hour =
+        clock_hour < 10 ? "0" + clock_hour : clock_hour;
+        clock_min = clock_min < 10 ? "0" + clock_min : clock_min;
+        clock_sec = clock_sec < 10 ? "0" + clock_sec : clock_sec;
+ 
+    /*let currentTime =
+        clock_hour +
+        ":" +
+        clock_min +
+        ":" +
+        clock_sec +
+        am_pm;*/
+        let currentTime =
+        clock_hour +
+        ":" +
+        clock_min +
+        ":" +
+        clock_sec;
+ 
+    document.getElementById("clock").innerHTML = currentTime;
+}
+showTime();
+</script>
   
 </body>
 
